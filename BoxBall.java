@@ -58,14 +58,27 @@ public class BoxBall
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
+     * Draw this ball at its current position onto the canvas.
+     *  @author Michael Kölling (mik)
+     * @author David J. Barnes
+     * @author Bruce Quig
+     * copied this over from bouncing ball
+     **/
+    public void draw()
     {
-        return 0;// put your code here
-        
+        canvas.setForegroundColor(color);
+        canvas.fillCircle(xPosition, yPosition, diameter);
     }
+
+    /**
+     * Draw this ball at its current position onto the canvas.
+     *  @author Michael Kölling (mik)
+     * @author David J. Barnes
+     * @author Bruce Quig
+     * copied this over from bouncing ball
+     **/
+    public void erase()
+    {
+        canvas.eraseCircle(xPosition, yPosition, diameter);
+    }    
 }
