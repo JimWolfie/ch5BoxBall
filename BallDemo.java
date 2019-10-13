@@ -58,7 +58,7 @@ public class BallDemo
     }
     /**
      * simulates balls bouncing in a box.
-     * @param int numBalls - how many balls to load in box
+     * @param numBalls - how many balls to load in box
      */
     public void boxBounce(int numBalls)
     {
