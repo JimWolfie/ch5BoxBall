@@ -9,6 +9,9 @@ import java.awt.Color;
  *
  * @author Michael Kölling and David J. Barnes
  * @version 2011.07.31
+ * 
+ * @author Nicholas Lindgren
+ * @version 2019-October-14 1.0  
  */
 
 public class BallDemo   
@@ -52,5 +55,13 @@ public class BallDemo
                 finished = true;
             }
         }
+    }
+    /**
+     * simulates balls bouncing in a box.
+     * @param int numBalls - how many balls to load in box
+     */
+    public void boxBounce(int numBalls)
+    {
+        
     }
 }
