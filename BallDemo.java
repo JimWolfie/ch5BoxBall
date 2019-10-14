@@ -69,15 +69,16 @@ public class BallDemo
      */
     public void boxBounce(int numBalls)
     {
-        //test for 100 bounces on 1 ball
+        
         //define the box
-        int a = 0;
+        int a = 0; //iterator for later
         myCanvas.setVisible(true);
         
         myCanvas.drawLine(left_x,top_y, right_x, top_y); //top line
         myCanvas.drawLine(left_x, bottom_y, right_x, bottom_y); //bottom line
         myCanvas.drawLine(left_x, top_y, left_x, bottom_y); //left 
         myCanvas.drawLine(right_x, top_y, right_x, bottom_y); //right
+        //add them to list
         do
         {
             int r = ThreadLocalRandom.current().nextInt(15, 256);
@@ -89,6 +90,14 @@ public class BallDemo
            a+=1;
         }while (a < numBalls );
         
-        //
+        //move them for test
+        do 
+        {
+            myCanvas.wait(50);
+            for(BoxBall b : balls)
+            {
+                b.move();
+            }
+        }while (a>= numBalls);
     }
 }
