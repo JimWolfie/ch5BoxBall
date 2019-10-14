@@ -63,6 +63,14 @@ public class BallDemo
     public void boxBounce(int numBalls)
     {
         //test for 100 bounces on 1 ball
-        
+        //define the box
+        int top_y = 10;
+        int bottom_y = 20;
+        int left_x=10;
+        int right_x = 20;
+        myCanvas.drawLine(left_x,top_y, right_x, top_y); //top line
+        myCanvas.drawLine(left_x, bottom_y, left_x, bottom_y); //bottom line
+        myCanvas.drawLine(left_x, top_y, left_x, bottom_y); //left 
+        myCanvas.drawLine(right_x, top_y, right_x, bottom_y); //right
     }
 }

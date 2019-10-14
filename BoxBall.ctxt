@@ -1,10 +1,16 @@
 #BlueJ class context
 comment0.target=BoxBall
 comment0.text=\r\n\ BoxBall\ draws\ and\ redraws\ circles\ in\ a\ box\ to\ animate\ them\r\n\ bouncing\ off\ the\ walls\ of\ a\ box.\r\n\r\n\ @author\ Nicholas\ Lindgre\r\n\ @version\ 10/13/19\ 1.0.\ \r\n
-comment1.params=
-comment1.target=BoxBall()
-comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ BoxBall\r\n
-comment2.params=y
-comment2.target=int\ sampleMethod(int)
-comment2.text=\r\n\ An\ example\ of\ a\ method\ -\ replace\ this\ comment\ with\ your\ own\r\n\r\n\ @param\ \ y\ \ a\ sample\ parameter\ for\ a\ method\r\n\ @return\ \ \ \ the\ sum\ of\ x\ and\ y\r\n
-numComments=3
+comment1.params=color\ radius\ top_y\ bottom_y\ left_x\ right_x\ canvas
+comment1.target=BoxBall(java.awt.Color,\ int,\ int,\ int,\ int,\ int,\ Canvas)
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ BoxBall\r\n\ @param\ Color\ -\ color\ of\ the\ ball\r\n\ @param\ radius\ -\ radius\ of\ the\ ball\r\n\ @param\ top_y\ -\ y\ value\ of\ the\ top\ of\ box\r\n\ @param\ bottom_y\ -\ y\ value\ of\ the\ bottom\ of\ box\r\n\ @param\ left_x\ -\ x\ value\ of\ the\ left\ wall\r\n\ @param\ right_x\ -x\ value\ of\ the\ right\ wall\r\n\ @param\ canvas\ -\ canvas\ this\ is\ drawn\ in.\r\n\ constructor\ predraws\ the\ circle\ somewhere\ inside\ the\ box\r\n\ does\ not\ draw\ on\ the\ line.\ \r\n\ top\ line\ <\ bottom\ line\r\n\ left\ line\ <\ right\ line\ \r\n\ intital\ speed\ is\ 1-7\ becasue\ assignemnt\ asks\ that\ the\ balls\ only\ move\ around\ 7ish\ units\r\n\ \r\n
+comment2.params=
+comment2.target=void\ draw()
+comment2.text=\r\n\ Draw\ this\ ball\ at\ its\ current\ position\ onto\ the\ canvas.\r\n\ \ @author\ Michael\ K\u00F6lling\ (mik)\r\n\ @author\ David\ J.\ Barnes\r\n\ @author\ Bruce\ Quig\r\n\ copied\ this\ over\ from\ bouncing\ ball\r\n
+comment3.params=
+comment3.target=void\ erase()
+comment3.text=\r\n\ Draw\ this\ ball\ at\ its\ current\ position\ onto\ the\ canvas.\r\n\ \ @author\ Michael\ K\u00F6lling\ (mik)\r\n\ @author\ David\ J.\ Barnes\r\n\ @author\ Bruce\ Quig\r\n\ copied\ this\ over\ from\ bouncing\ ball\r\n
+comment4.params=
+comment4.target=void\ move()
+comment4.text=\r\n\ move\ the\ balls.\ \r\n
+numComments=5

@@ -91,13 +91,14 @@ public class BoxBall
         int x_max = right_x- radius; //right
         int y_min = top_y + radius; //top
         int y_max = bottom_y - radius; //bottom
-        
-        // update the circle 
+        //erase the ball
+        erase();
+        // update the ball
         xPosition += xSpeed;
         yPosition += ySpeed;
         
         
-        //check hit wall x axis first
+        //check if hit wall x axis first
         if (xPosition < x_min)
         {
             xSpeed = -xSpeed;
@@ -116,6 +117,7 @@ public class BoxBall
             ySpeed = -ySpeed;
             yPosition = y_max;
         }
-        
+        //redraw the ball
+        draw();
     }
 }
