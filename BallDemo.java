@@ -98,6 +98,7 @@ public class BallDemo
             {
                 b.move();
             }
+            //a-=1; set to infinite because didn't specificy end condition 
         }while (a>= numBalls);
     }
 }

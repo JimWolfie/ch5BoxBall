@@ -28,7 +28,7 @@ public class BoxBall
     /**
      * Constructor for objects of class BoxBall
      * @param Color - color of the ball
-     * @param diameter - radius of the ball
+     * @param diameter - diameter of the ball
      * @param top_y - y value of the top of box
      * @param bottom_y - y value of the bottom of box
      * @param left_x - x value of the left wall
