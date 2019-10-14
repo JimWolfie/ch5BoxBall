@@ -81,9 +81,9 @@ public class BallDemo
         //add them to list
         do
         {
-            int r = ThreadLocalRandom.current().nextInt(15, 256);
-            int g = ThreadLocalRandom.current().nextInt(15, 256);
-            int b = ThreadLocalRandom.current().nextInt(15, 256);
+            int r = ThreadLocalRandom.current().nextInt(20, 256);
+            int g = ThreadLocalRandom.current().nextInt(20, 256);
+            int b = ThreadLocalRandom.current().nextInt(20, 256);
             
            balls.add( new BoxBall(new Color(r, g, b), 20, top_y, bottom_y, left_x, right_x,myCanvas) );
            balls.get(a).draw();
