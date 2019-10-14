@@ -64,6 +64,7 @@ public class BallDemo
     {
         //test for 100 bounces on 1 ball
         //define the box
+        myCanvas.setVisible(true);
         int top_y = 10;
         int bottom_y = 20;
         int left_x=10;
