@@ -78,15 +78,17 @@ public class BallDemo
         myCanvas.drawLine(left_x, bottom_y, right_x, bottom_y); //bottom line
         myCanvas.drawLine(left_x, top_y, left_x, bottom_y); //left 
         myCanvas.drawLine(right_x, top_y, right_x, bottom_y); //right
-        while (a <= numBalls)
+        do
         {
             int r = ThreadLocalRandom.current().nextInt(15, 256);
             int g = ThreadLocalRandom.current().nextInt(15, 256);
             int b = ThreadLocalRandom.current().nextInt(15, 256);
-            BoxBall test = new BoxBall(new Color(r, g, b), 20, top_y, bottom_y, left_x, right_x,myCanvas);
-           balls.add( test );
-           test.draw();
+            
+           balls.add( new BoxBall(new Color(r, g, b), 20, top_y, bottom_y, left_x, right_x,myCanvas) );
+           balls.get(a).draw();
            a+=1;
-        }
+        }while (a < numBalls );
+        
+        //
     }
 }
