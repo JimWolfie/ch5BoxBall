@@ -14,7 +14,7 @@ public class BoxBall
     // instance variables - replace the example below with your own
     private Ellipse2D.Double circle;
     private Color color;
-    private int diameter;
+    private int radius;
     private int xPosition;
     private int yPosition;
     private final int top_y;//walls for box 
@@ -28,7 +28,7 @@ public class BoxBall
     /**
      * Constructor for objects of class BoxBall
      * @param Color - color of the ball
-     * @param diameter - diameter of the ball
+     * @param radius - radius of the ball
      * @param top_y - y value of the top of box
      * @param bottom_y - y value of the bottom of box
      * @param left_x - x value of the left wall
@@ -41,18 +41,18 @@ public class BoxBall
      * intital speed is 1-7 becasue assignemnt asks that the balls only move around 7ish units
      * 
      */
-    public BoxBall(Color color, int diameter, int top_y, int bottom_y, int left_x, int right_x,
+    public BoxBall(Color color, int radius, int top_y, int bottom_y, int left_x, int right_x,
         Canvas canvas)
     {
         this.color = color;
-        this.diameter = diameter;
+        this.radius = radius;
         this.top_y = top_y;
         this.bottom_y = bottom_y;
         this.left_x = left_x;
         this.right_x = right_x;
         this.canvas = canvas;
-        this.circle = new Ellipse2D.Double(ThreadLocalRandom.current().nextInt(this.left_x+1, this.right_x), 
-            ThreadLocalRandom.current().nextInt(this.top_y+1, this.bottom_y +1), this.diameter, this.diameter);
+        this.xPosition = ThreadLocalRandom.current().nextInt(this.left_x + radius, this.right_x - radius);
+        this.yPosition = ThreadLocalRandom.current().nextInt(this.top_y + radius, this.bottom_y - radius);
         this.ySpeed = ThreadLocalRandom.current().nextInt(1, 8);
         this.xSpeed = ThreadLocalRandom.current().nextInt(1, 8);
     }
@@ -67,7 +67,7 @@ public class BoxBall
     public void draw()
     {
         canvas.setForegroundColor(color);
-        canvas.fillCircle(xPosition, yPosition, diameter);
+        canvas.fillCircle(xPosition, yPosition, (int)(this.radius *2));
     }
 
     /**
@@ -79,6 +79,43 @@ public class BoxBall
      **/
     public void erase()
     {
-        canvas.eraseCircle(xPosition, yPosition, diameter);
-    }    
+        canvas.eraseCircle(xPosition, yPosition, (int)(this.radius *2));
+    }
+    /**
+     * move the balls. 
+     */
+    public void move()
+    {
+        //get the ball's max legal distance 
+        int x_min = left_x + radius; //left
+        int x_max = right_x- radius; //right
+        int y_min = top_y + radius; //top
+        int y_max = bottom_y - radius; //bottom
+        
+        // update the circle 
+        xPosition += xSpeed;
+        yPosition += ySpeed;
+        
+        
+        //check hit wall x axis first
+        if (xPosition < x_min)
+        {
+            xSpeed = -xSpeed;
+            xPosition = x_min;
+        }else if(xPosition > x_max)
+        {
+            xSpeed = -xSpeed;
+            xPosition = x_max;
+        }
+        if (yPosition < y_min)
+        {
+            ySpeed = -ySpeed;
+            yPosition = y_min;
+        }else if(yPosition > y_max)
+        {
+            ySpeed = -ySpeed;
+            yPosition = y_max;
+        }
+        
+    }
 }
