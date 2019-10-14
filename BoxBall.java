@@ -17,10 +17,10 @@ public class BoxBall
     private int diameter;
     private int xPosition;
     private int yPosition;
-    private final int top_y;//walls for box 
-    private final int bottom_y;
-    private final int left_x;
-    private final int right_x;
+    private static int top_y;
+    private static int bottom_y;
+    private static int left_x;
+    private static int right_x;
     private Canvas canvas;
     private int ySpeed;
     private int xSpeed;
@@ -29,32 +29,34 @@ public class BoxBall
      * Constructor for objects of class BoxBall
      * @param Color - color of the ball
      * @param diameter - diameter of the ball
-     * @param top_y - y value of the top of box
-     * @param bottom_y - y value of the bottom of box
-     * @param left_x - x value of the left wall
-     * @param right_x -x value of the right wall
      * @param canvas - canvas this is drawn in.
-     * constructor predraws the circle somewhere inside the box
-     * does not draw on the line. 
+     * @param box - dimensions of the canvas object 
+     * constructor represents the circle somewhere inside the bounds
+     * then draws the box. this should be its own class
+     * does not draw circle on the line. 
      * top line < bottom line
      * left line < right line 
      * intital speed is 1-7 becasue assignemnt asks that the balls only move around 7ish units
      * 
      */
-    public BoxBall(Color color, int diameter, int top_y, int bottom_y, int left_x, int right_x,
-        Canvas canvas)
+    
+    public BoxBall(Color color, int diameter, Dimension box, Canvas canvas)
     {
         this.color = color;
         this.diameter = diameter;
-        this.top_y = top_y;
-        this.bottom_y = bottom_y;
-        this.left_x = left_x;
-        this.right_x = right_x;
         this.canvas = canvas;
-        this.xPosition = ThreadLocalRandom.current().nextInt(this.left_x + diameter, this.right_x - diameter);
-        this.yPosition = ThreadLocalRandom.current().nextInt(this.top_y + diameter, this.bottom_y - diameter);
+        this.top_y = 10;
+        this.bottom_y = (int)box.getHeight()-10;
+        this.left_x = 10;
+        this.right_x = (int)box.getWidth()-10;
+        this.xPosition = ThreadLocalRandom.current().nextInt(left_x + diameter, right_x - diameter);
+        this.yPosition = ThreadLocalRandom.current().nextInt(top_y + diameter, bottom_y - diameter);
         this.ySpeed = ThreadLocalRandom.current().nextInt(1, 8);
         this.xSpeed = ThreadLocalRandom.current().nextInt(1, 8);
+        canvas.drawLine(left_x,top_y, right_x, top_y); //top line
+        canvas.drawLine(left_x, bottom_y, right_x, bottom_y); //bottom line
+        canvas.drawLine(left_x, top_y, left_x, bottom_y); //left 
+        canvas.drawLine(right_x, top_y, right_x, bottom_y); //right
     }
 
     /**

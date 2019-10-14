@@ -1,6 +1,7 @@
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
+import java.awt.Dimension;
 /**
  * Class BallDemo - a short demonstration showing animation with the 
  * Canvas class. 
@@ -19,10 +20,7 @@ public class BallDemo
 {
     private Canvas myCanvas;
     private ArrayList<BoxBall> balls;
-    private int top_y = 10;
-    private int bottom_y = 490;
-    private int left_x=10;
-    private int right_x = 490;
+   
 
     /**
      * Create a BallDemo object. Creates a fresh canvas and makes it visible.
@@ -73,19 +71,19 @@ public class BallDemo
         //define the box
         int a = 0; //iterator for later
         myCanvas.setVisible(true);
+        //I'm not loading that into the loop.
+        //so cached
+        Dimension box = myCanvas.getSize();
         
-        myCanvas.drawLine(left_x,top_y, right_x, top_y); //top line
-        myCanvas.drawLine(left_x, bottom_y, right_x, bottom_y); //bottom line
-        myCanvas.drawLine(left_x, top_y, left_x, bottom_y); //left 
-        myCanvas.drawLine(right_x, top_y, right_x, bottom_y); //right
         //add them to list
         do
         {
             int r = ThreadLocalRandom.current().nextInt(20, 256);
             int g = ThreadLocalRandom.current().nextInt(20, 256);
             int b = ThreadLocalRandom.current().nextInt(20, 256);
-            
-           balls.add( new BoxBall(new Color(r, g, b), 20, top_y, bottom_y, left_x, right_x,myCanvas) );
+             
+           
+           balls.add( new BoxBall(new Color(r, g, b), 20, box, myCanvas) );
            balls.get(a).draw();
            a+=1;
         }while (a < numBalls );
