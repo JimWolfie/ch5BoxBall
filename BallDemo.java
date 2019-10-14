@@ -30,6 +30,11 @@ public class BallDemo
         myCanvas = new Canvas("Ball Demo", 600, 500);
         balls = new ArrayList<BoxBall>();
     }
+    public BallDemo(int width, int height)
+    {
+        myCanvas = new Canvas("Ball Demo", width+10, height+10);
+        balls = new ArrayList<BoxBall>();
+    }
 
     /**
      * Simulate two bouncing balls
