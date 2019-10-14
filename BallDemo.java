@@ -1,5 +1,6 @@
 import java.awt.Color;
-
+import java.util.ArrayList;
+import java.util.concurrent.ThreadLocalRandom;
 /**
  * Class BallDemo - a short demonstration showing animation with the 
  * Canvas class. 
@@ -17,6 +18,11 @@ import java.awt.Color;
 public class BallDemo   
 {
     private Canvas myCanvas;
+    private ArrayList<BoxBall> balls;
+    private int top_y = 10;
+    private int bottom_y = 490;
+    private int left_x=10;
+    private int right_x = 490;
 
     /**
      * Create a BallDemo object. Creates a fresh canvas and makes it visible.
@@ -24,6 +30,7 @@ public class BallDemo
     public BallDemo()
     {
         myCanvas = new Canvas("Ball Demo", 600, 500);
+        balls = new ArrayList<BoxBall>();
     }
 
     /**
@@ -64,14 +71,22 @@ public class BallDemo
     {
         //test for 100 bounces on 1 ball
         //define the box
+        int a = 0;
         myCanvas.setVisible(true);
-        int top_y = 10;
-        int bottom_y = 490;
-        int left_x=10;
-        int right_x = 490;
+        
         myCanvas.drawLine(left_x,top_y, right_x, top_y); //top line
         myCanvas.drawLine(left_x, bottom_y, right_x, bottom_y); //bottom line
         myCanvas.drawLine(left_x, top_y, left_x, bottom_y); //left 
         myCanvas.drawLine(right_x, top_y, right_x, bottom_y); //right
+        while (a <= numBalls)
+        {
+            int r = ThreadLocalRandom.current().nextInt(15, 256);
+            int g = ThreadLocalRandom.current().nextInt(15, 256);
+            int b = ThreadLocalRandom.current().nextInt(15, 256);
+            BoxBall test = new BoxBall(new Color(r, g, b), 20, top_y, bottom_y, left_x, right_x,myCanvas);
+           balls.add( test );
+           test.draw();
+           a+=1;
+        }
     }
 }
