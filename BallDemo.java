@@ -66,11 +66,11 @@ public class BallDemo
         //define the box
         myCanvas.setVisible(true);
         int top_y = 10;
-        int bottom_y = 20;
+        int bottom_y = 490;
         int left_x=10;
-        int right_x = 20;
+        int right_x = 490;
         myCanvas.drawLine(left_x,top_y, right_x, top_y); //top line
-        myCanvas.drawLine(left_x, bottom_y, left_x, bottom_y); //bottom line
+        myCanvas.drawLine(left_x, bottom_y, right_x, bottom_y); //bottom line
         myCanvas.drawLine(left_x, top_y, left_x, bottom_y); //left 
         myCanvas.drawLine(right_x, top_y, right_x, bottom_y); //right
     }
